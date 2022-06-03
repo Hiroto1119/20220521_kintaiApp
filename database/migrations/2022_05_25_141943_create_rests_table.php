@@ -15,7 +15,7 @@ class CreateRestsTable extends Migration
     {
         Schema::create('rests', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('attendance_id');
+            $table->foreignId('attendance_id')->constrained();
             $table->time('start_time');
             $table->time('end_time')->nullable();
             $table->timestamps();

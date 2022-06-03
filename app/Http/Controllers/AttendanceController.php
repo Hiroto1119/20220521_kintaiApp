@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class StampController extends Controller
+class AttendanceController extends Controller
 {
 
     public function index()
     {
-        return view('stamp');
+        return view('date');
     }
 
 }
