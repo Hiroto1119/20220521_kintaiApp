@@ -2,63 +2,48 @@
 
 @section('content')
 
-<x-guest-layout>
-    <x-auth-card>
+<div class="registerBackground">
+    <h1 class="registerH1">会員登録</h1>
 
-        <x-slot name="title">
-                <h1>会員登録</h1>
-        </x-slot>
-
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+    <div class="registerFormCard">
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+        <!-- name -->
+        <div class="formItem">
+            <input id="name" placeholder=" 名前" class="" type="text" name="name" :value="old('name')" required autofocus />
+        </div>
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
+        <!-- mail -->
+        <div class="formItem">
+            <input id="email" placeholder=" メールアドレス" class="" type="email" name="email" :value="old('email')" required />
+        </div>
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+        <!-- password -->
+        <div class="formItem">
+            <input id="password" placeholder=" パスワード" class="" type="password" name="password" :value="old('password')" required autocomplete="new-password" />
+        </div>
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
+        <!-- password confirmation -->
+        <div class="formItem">
+            <input id="passwordConfirmation" placeholder=" 確認用パスワード" class="" type="password" name="passwordConfirmation" :value="old('passwordConfirmation')" required />
+        </div>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+        <!-- button -->
+        <div class="formItem">
+            <input id="button" type="submit" value="会員登録" class="button">
+        </div>
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
         </form>
-    </x-auth-card>
-</x-guest-layout>
+    </div>
+    <p class="loginMessage">アカウントをお持ちの方はこちら</p>
+    <div class="loginTransition">
+        <a href="login">ログイン</a>
+    </div>
+
+</div>
+
+
+
+
 @endsection

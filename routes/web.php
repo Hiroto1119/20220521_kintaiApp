@@ -27,7 +27,7 @@ use App\Http\Controllers\RestController;
 require __DIR__.'/auth.php';
 
 
-Route::get('/', [StampController::class, 'index'])->name('stamp.index');
+Route::get('/', [StampController::class, 'index'])->middleware(['auth'])->name('stamp.index');
 
 
 Route::post('/attendance/start', [AttendanceController::class, 'start'])->name('attendance.start');
