@@ -6,7 +6,7 @@
     <h1 class="registerH1">会員登録</h1>
 
     <div class="registerFormCard">
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="register">
             @csrf
 
         <!-- name -->
@@ -26,7 +26,7 @@
 
         <!-- password confirmation -->
         <div class="formItem">
-            <input id="passwordConfirmation" placeholder=" 確認用パスワード" class="" type="password" name="passwordConfirmation" :value="old('passwordConfirmation')" required />
+            <input id="password_confirmation" placeholder=" 確認用パスワード" class="" type="password" name="password_confirmation" :value="old('password_confirmation')" required />
         </div>
 
         <!-- button -->
