@@ -12,14 +12,23 @@
     <header class="site-header">
         <div class="wrapper site-header__wrapper">
             <a href="#" class="brand">Atte</a>
+
+            @if(Auth::check())
             <nav class="nav">
                 <button class="nav__toggle" aria-expanded="false" type="button">menu</button>
                 <ul class="nav__wrapper">
                     <li class="nav__item"><a href="#">ホーム</a></li>
                     <li class="nav__item"><a href="#">日付一覧</a></li>
-                    <li class="nav__item"><a href="#">ログアウト</a></li>
+                    <li class="nav__item">
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button class="nav__item__button" type="submit">ログアウト</button>
+                        </form>
+                    </li>
                 </ul>
             </nav>
+            @endif
+
         </div>
     </header>
 

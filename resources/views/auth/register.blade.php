@@ -18,15 +18,18 @@
         <div class="formItem">
             <input id="email" placeholder=" メールアドレス" class="" type="email" name="email" :value="old('email')" required />
         </div>
+        @foreach($errors->all() as $error)
+            <p>{{$error}}</p>
+        @endforeach
 
         <!-- password -->
         <div class="formItem">
-            <input id="password" placeholder=" パスワード" class="" type="password" name="password" :value="old('password')" required autocomplete="new-password" />
+            <input id="password" placeholder=" パスワード" class="" type="password" name="password" :value="old('password')" required autocomplete="new-password" minlength="8" />
         </div>
 
         <!-- password confirmation -->
         <div class="formItem">
-            <input id="password_confirmation" placeholder=" 確認用パスワード" class="" type="password" name="password_confirmation" :value="old('password_confirmation')" required />
+            <input id="password_confirmation" placeholder=" 確認用パスワード" class="" type="password" name="password_confirmation" :value="old('password_confirmation')" required minlength="8" />
         </div>
 
         <!-- button -->
@@ -41,6 +44,9 @@
         <a href="login">ログイン</a>
     </div>
 
+    {{-- @foreach($errors->all() as $error)
+        <p>{{$error}}</p>
+    @endforeach --}}
 </div>
 
 

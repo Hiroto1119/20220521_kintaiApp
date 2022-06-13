@@ -19,6 +19,11 @@
             <input id="password" placeholder=" パスワード" class="" type="password" name="password" :value="old('password')" required autocomplete="new-password" />
         </div>
 
+        <!-- button -->
+        <div class="formItem">
+            <input id="button" type="submit" value="ログイン" class="button">
+        </div>
+
         </form>
     </div>
     <p class="registerMessage">アカウントをお持ちでない方はこちら</p>

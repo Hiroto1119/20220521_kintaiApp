@@ -27,13 +27,18 @@ use App\Http\Controllers\RestController;
 require __DIR__.'/auth.php';
 
 
-Route::get('/', [StampController::class, 'index'])->middleware(['auth'])->name('stamp.index');
+// Route::get('/', [StampController::class, 'index'])->middleware(['auth'])->name('stamp.index');
+// Route::get('/', [StampController::class, 'index'])->name('stamp.index');
 
+Route::middleware(['auth'])->group(function() {
+    Route::get('/', [StampController::class, 'index'])->name('stamp.index');
 
-Route::post('/attendance/start', [AttendanceController::class, 'start'])->name('attendance.start');
-Route::post('/attendance/end', [AttendanceController::class, 'end'])->name('attendance.end');
-Route::get('/date', [AttendanceController::class, 'index'])->name('attendance.date');
+    Route::post('/attendance/start', [AttendanceController::class, 'start'])->name('attendance.start');
+    Route::post('/attendance/end', [AttendanceController::class, 'end'])->name('attendance.end');
+    Route::get('/date', [AttendanceController::class, 'index'])->name('attendance.date');
 
+    Route::post('/rest/start', [RestController::class, 'start'])->name('rest.start');
+    Route::post('/rest/start', [RestController::class, 'start'])->name('rest.end');
+});
 
-Route::post('/rest/start', [RestController::class, 'start'])->name('rest.start');
-Route::post('/rest/start', [RestController::class, 'start'])->name('rest.end');
+// 未認証の時はAuthenticate.phpが呼ばれる。

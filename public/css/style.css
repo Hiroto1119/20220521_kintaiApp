@@ -259,7 +259,10 @@ menu {
 
 /* ヘッダー */
 header {
+    display: flex;
     padding: 10px 40px;
+    height: 60px;
+    align-items: center;
 }
 
 .brand {
@@ -270,6 +273,7 @@ header {
 .site-header {
     position: relative;
     background-color: #ffffff;
+    align-items: center;
 }
 
 .site-header__wrapper {
@@ -289,6 +293,7 @@ header {
 @media (min-width: 600px) {
     .nav__wrapper {
         display: flex;
+        align-items: center;
     }
 }
 
@@ -312,9 +317,18 @@ header {
     }
 }
 
-.nav__item a {
+.nav__item a,
+.nav__item__button {
     display: block;
     padding: 1.5rem 1rem;
+}
+
+.nav__item__button {
+    border: none; /* 枠線を消す */
+    outline: none; /* クリックしたときに表示される枠線を消す */
+    background: transparent; /* 背景の灰色を消す */
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .nav__toggle {
@@ -347,7 +361,7 @@ footer {
 /* 登録画面 */
 .registerBackground {
     background-color: rgb(238, 238, 238);
-    height: calc(100vh - 84px - 50px);
+    height: calc(100vh - 80px - 50px);
 }
 
 .registerH1 {
@@ -401,7 +415,7 @@ footer {
 /* ログイン画面 */
 .loginBackground {
     background-color: rgb(238, 238, 238);
-    height: calc(100vh - 84px - 50px);
+    height: calc(100vh - 80px - 50px);
 }
 
 .loginH1 {
@@ -432,7 +446,7 @@ footer {
 /* 勤怠画面 */
 .stampBackground {
     background-color: rgb(238, 238, 238);
-    height: calc(100vh - 84px - 50px);
+    height: calc(100vh - 80px - 50px);
 }
 
 .message {
@@ -461,8 +475,9 @@ footer {
     border-color: white;
     border-radius: 5px;
     cursor: pointer;
-    /* box-shadow: none;
-    outline: none; */
+    /* box-shadow: none; */
+    /* outline: none; */
+    border: none;
 }
 
 .stamp:active {
