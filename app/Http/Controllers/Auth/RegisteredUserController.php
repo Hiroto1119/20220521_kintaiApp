@@ -33,7 +33,8 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    // public function store(Request $request)
+    public function store(ClientRequest $request)
     {
         // $request->validate([
         //     'name' => ['required', 'string', 'max:255'],

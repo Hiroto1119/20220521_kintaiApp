@@ -371,6 +371,10 @@ footer {
     text-align: center;
 }
 
+.errorMessage {
+    text-align: center;
+}
+
 .registerFormCard {
     display: flex;
     justify-content: center;

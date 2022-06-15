@@ -13,7 +13,7 @@ class ClientRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,10 +23,34 @@ class ClientRequest extends FormRequest
      */
     public function rules()
     {
+        // return [
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //     'password' => ['required', 'min:8', 'max:255', 'confirmed', Rules\Password::defaults()],
+        // ];
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'min:8', 'max:255', 'confirmed', Rules\Password::defaults()],
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:8|max:255|confirmed',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => '名前を入力してください',
+            'name.string' => '正しい形式で入力してください',
+            'name.max:255' => '255文字以下で入力してください',
+
+            'email.required' => 'メールアドレスを入力してください',
+            'email.max:255' => '255文字以下で入力してください',
+            'email.email' => '正しい形式で入力してください',
+            'email.unique:users' => 'このメールアドレスは既に登録済です',
+
+            'password.required' => 'パスワードを入力してください',
+            'password.min:8' => '8文字以上で入力してください',
+            'password.max:255' => '255文字以下で入力してください',
+            'password.comfirmed' => 'パスワードが一致していません',
         ];
     }
 }

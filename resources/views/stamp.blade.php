@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="stampBackground">
-    <p class="message">福場凛太郎さんお疲れ様です！</p>
+    <p class="message">test</p>
 
     <div class="container">
         <button class="stamp">勤務開始</button>
