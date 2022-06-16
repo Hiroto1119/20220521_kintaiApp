@@ -19,10 +19,10 @@
                 <th>勤務時間</th>
             </tr>
 
-            {{-- @foreach($posts as $post) --}}
+            {{-- @foreach($posts as $post)
 
-            {{-- <tr>
-                <td>{{$post->name}}</td>
+            <tr>
+                <td>{{$attendance->name}}</td>
                 <td>{{$post->start_time}}</td>
                 <td>{{$post->end_time}}</td>
                 <td>{{$post->休憩時間}}</td>

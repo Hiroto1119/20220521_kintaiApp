@@ -3,14 +3,32 @@
 @section('content')
 
 <div class="stampBackground">
-    <p class="message">test</p>
+    <p class="message">{{$user}}さんお疲れ様です！</p>
 
     <div class="container">
-        <button class="stamp">勤務開始</button>
-        <button class="stamp">勤務終了</button>
-        <button class="stamp">休憩開始</button>
-        <button class="stamp">休憩終了</button>
+        <form class="stamp" method="POST" action="/attendance/start">
+            @csrf
+            <button class="stamp">勤務開始</button>
+        </form>
+
+        <form class="stamp" method="POST" action="/attendance/end">
+            @csrf
+            <button class="stamp">勤務終了</button>
+        </form>
+
+        <form class="stamp" method="POST" action="/rest/start">
+            @csrf
+            <button class="stamp">休憩開始</button>
+        </form>
+
+        <form class="stamp" method="POST" action="/rest/end">
+            @csrf
+            <button class="stamp">休憩終了</button>
+        </form>
+
     </div>
+    {{-- <p>{{$my_status}}</p>
+    <p>{{$error}}</p> --}}
 </div>
 
 
