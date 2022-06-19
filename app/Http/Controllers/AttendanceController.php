@@ -28,8 +28,9 @@ class AttendanceController extends Controller
          * DB
          */
         $oldAttendance = Attendance::where('user_id', $user->id)->latest()->first();
-        if ($oldAttendance) {
+        if ( !empty($oldAttendance)) {
             $oldAttendanceStart = new Carbon($oldAttendance->start_time);
+            // $oldAttendanceDay = $oldAttendanceStart->startOfDay();
             $oldAttendanceDay = $oldAttendanceStart->startOfDay();
         }
 
