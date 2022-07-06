@@ -12,14 +12,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attendance extends Model
 {
-    protected $fillable = ['user_id', 'start_time', 'end_time'];
+    protected $fillable = ['user_id', 'start_time', 'end_time', 'date'];
 
-    /**
-     * ユーザー関連付け
-     * 1対多
-     */
     public function user()
     {
         $this->belongsTo(User::class);
     }
+
+    // public function user()
+    // {
+    //     $this->belongsTo('App\Models\User');
+    // }
 }

@@ -27,8 +27,8 @@
         </form>
 
     </div>
-    {{-- <p>{{$my_status}}</p>
-    <p>{{$error}}</p> --}}
+    <p>{{session('my_status')}}</p>
+    <p>{{session('error')}}</p>
 </div>
 
 

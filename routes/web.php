@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/date', [AttendanceController::class, 'index'])->name('attendance.date');
 
     Route::post('/rest/start', [RestController::class, 'start'])->name('rest.start');
-    Route::post('/rest/end', [RestController::class, 'start'])->name('rest.end');
+    Route::post('/rest/end', [RestController::class, 'end'])->name('rest.end');
 });
 
 // 未認証の時はAuthenticate.phpが呼ばれる。

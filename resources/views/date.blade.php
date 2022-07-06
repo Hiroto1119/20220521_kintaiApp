@@ -19,29 +19,23 @@
                 <th>勤務時間</th>
             </tr>
 
-            {{-- @foreach($posts as $post)
-
-            <tr>
-                <td>{{$attendance->name}}</td>
-                <td>{{$post->start_time}}</td>
-                <td>{{$post->end_time}}</td>
-                <td>{{$post->休憩時間}}</td>
-                <td>{{$post->勤務時間}}</td>
-            </tr> --}}
+            @foreach($attendances as $attendance)
 
             <tr class="tableContent">
+                {{-- <td>{{$user->getTitle() }}</td> --}}
                 <td>名前</td>
-                <td>勤務開始</td>
-                <td>勤務終了</td>
+                <td>{{$attendance->start_time}}</td>
+                <td>{{$attendance->end_time}}</td>
                 <td>休憩時間</td>
                 <td>勤務時間</td>
             </tr>
 
-            {{-- @endforeach --}}
+            @endforeach
+
 
         </table>
     </div>
-    {{-- <p>{{ $posts->links() }}</p> --}}
+    <p>{{ $attendances->links() }}</p>
 </div>
 
 @endsection

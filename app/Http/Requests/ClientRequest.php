@@ -40,17 +40,17 @@ class ClientRequest extends FormRequest
         return [
             'name.required' => '名前を入力してください',
             'name.string' => '正しい形式で入力してください',
-            'name.max:255' => '255文字以下で入力してください',
+            'name.max' => '255文字以下で入力してください',
 
             'email.required' => 'メールアドレスを入力してください',
-            'email.max:255' => '255文字以下で入力してください',
+            'email.max' => '255文字以下で入力してください',
             'email.email' => '正しい形式で入力してください',
-            'email.unique:users' => 'このメールアドレスは既に登録済です',
+            'email.unique' => 'このメールアドレスは既に登録済です',
 
             'password.required' => 'パスワードを入力してください',
-            'password.min:8' => '8文字以上で入力してください',
-            'password.max:255' => '255文字以下で入力してください',
-            'password.comfirmed' => 'パスワードが一致していません',
+            'password.min' => '8文字以上で入力してください',
+            'password.max' => '255文字以下で入力してください',
+            'password.confirmed' => 'パスワードが一致していません',
         ];
     }
 }
