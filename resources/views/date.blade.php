@@ -6,7 +6,7 @@
     <div class="wrapper">
         <div class="date">
             <button class="left"><</button>
-            <div>2022-6-1</div>
+            <div>{{$today->format('Y-m-d')}}</div>
             <button class="right">></button>
         </div>
 
@@ -22,11 +22,10 @@
             @foreach($attendances as $attendance)
 
             <tr class="tableContent">
-                {{-- <td>{{$attendance->user_id}}</td> --}}
                 <td>{{$attendance->user->name}}</td>
                 <td>{{$attendance->start_time}}</td>
                 <td>{{$attendance->end_time}}</td>
-                <td>休憩時間</td>
+                <td>{{$attendance->rest->start_time}}</td>
                 <td>勤務時間</td>
             </tr>
 

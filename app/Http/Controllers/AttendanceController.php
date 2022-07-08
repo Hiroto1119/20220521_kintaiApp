@@ -60,17 +60,10 @@ class AttendanceController extends Controller
 
     public function index()
     {
-        // $attendances = Attendance::all();
         $attendances = Attendance::simplePaginate(5);
+        $today = Carbon::today();
 
-        // 教材のリレーションの部分を確認、モデルで定義
-        // $attendances = User::find(1)->users;
-
-        // foreach ($users as $user) {
-        //     dump($user->name);
-        // }
-
-        return view('date', ['attendances' => $attendances]);
+        return view('date', ['attendances' => $attendances],['today' => $today] );
     }
 
 }
