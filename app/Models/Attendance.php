@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 // class Attendance extends Model
 // {
@@ -16,11 +17,6 @@ class Attendance extends Model
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
-
-    // public function user()
-    // {
-    //     $this->belongsTo('App\Models\User');
-    // }
 }

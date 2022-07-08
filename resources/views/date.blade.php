@@ -22,8 +22,8 @@
             @foreach($attendances as $attendance)
 
             <tr class="tableContent">
-                {{-- <td>{{$user->getTitle() }}</td> --}}
-                <td>名前</td>
+                {{-- <td>{{$attendance->user_id}}</td> --}}
+                <td>{{$attendance->user->name}}</td>
                 <td>{{$attendance->start_time}}</td>
                 <td>{{$attendance->end_time}}</td>
                 <td>休憩時間</td>
