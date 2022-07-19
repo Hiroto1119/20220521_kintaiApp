@@ -25,7 +25,7 @@
                 <td>{{$attendance->user->name}}</td>
                 <td>{{$attendance->start_time}}</td>
                 <td>{{$attendance->end_time}}</td>
-                <td>{{$attendance->rest->start_time}}</td>
+                <td>{{$attendance->sumRest()}}</td>
                 <td>勤務時間</td>
             </tr>
 

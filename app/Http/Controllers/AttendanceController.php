@@ -60,10 +60,15 @@ class AttendanceController extends Controller
 
     public function index()
     {
-        $attendances = Attendance::simplePaginate(5);
         $today = Carbon::today();
+        $attendancesToday = Attendance::where('date', $today)->paginate(5);
+        // dd($attendancesToday);
+        // attendancesの日付と今日の日付が一致した場合に、表示する。whereで絞り込む。
+        // $attendances = Attendance::simplePaginate(5);
+        // dd($attendances);
+        // $today = Carbon::today();
 
-        return view('date', ['attendances' => $attendances],['today' => $today] );
+        return view('date', ['attendances' => $attendancesToday],['today' => $today] );
     }
 
 }

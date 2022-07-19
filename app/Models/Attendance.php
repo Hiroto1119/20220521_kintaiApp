@@ -21,8 +21,50 @@ class Attendance extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function rest()
+    public function rests()
     {
+        // $rests = $this->hasMany(Rest::class);
+        // dd($rests);
+        // foreach($rests as $rest){
+        //     dd($rest);
+        // }
         return $this->hasMany(Rest::class);
+    }
+
+    public function sumRest()
+    {
+        $rests = $this->rests;
+        // 上のrestsを取得している
+        // dd($rests);
+        $sum = 0;
+
+        foreach($rests as $rest)
+        {
+            $start_time = $rest->start_time;
+            $end_time = $rest->end_time;
+            // 秒に直して計算する、差分の秒を足す
+            // $sumRestTime = ($end_time - $start_time);
+            $start_time_cal = strtotime($start_time);
+            // dd($start_time_cal);
+            $end_time_cal = strtotime($end_time);
+
+            // var_dump($end_time);
+            if(!$end_time) {
+                continue;
+            }
+            $sumRestTime = ($end_time_cal - $start_time_cal);
+            $sum = $sum + $sumRestTime;
+
+            // dd($sumRestTime);
+
+            // return ($start_time);
+            // dd($start_time);
+        }
+        $hours = floor($sum / 3600);
+        $minutes = floor(($sum / 60) % 60);
+        $seconds = $sum % 60;
+        $hms = sprintf("%02d:%02d:%02d", $hours, $minutes, $seconds);
+
+        return $hms;
     }
 }
