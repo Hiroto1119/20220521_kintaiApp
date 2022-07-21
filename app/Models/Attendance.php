@@ -23,11 +23,6 @@ class Attendance extends Model
 
     public function rests()
     {
-        // $rests = $this->hasMany(Rest::class);
-        // dd($rests);
-        // foreach($rests as $rest){
-        //     dd($rest);
-        // }
         return $this->hasMany(Rest::class);
     }
 
@@ -67,4 +62,10 @@ class Attendance extends Model
 
         return $hms;
     }
+
+    public function sumAttendance()
+    {
+        return $this->hasMany(Rest::class);
+    }
+
 }

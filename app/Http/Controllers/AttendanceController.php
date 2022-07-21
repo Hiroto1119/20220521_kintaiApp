@@ -67,8 +67,15 @@ class AttendanceController extends Controller
         // $attendances = Attendance::simplePaginate(5);
         // dd($attendances);
         // $today = Carbon::today();
+        $attendanceStarts = Attendance::all();
+        $attendanceEnds = Attendance::all();
 
-        return view('date', ['attendances' => $attendancesToday],['today' => $today] );
+        return view('date',
+                    ['attendances' => $attendancesToday],
+                    ['today' => $today],
+                    ['attendanceStarts' => $attendanceStarts],
+                    ['attendanceEnds' => $attendanceEnds],
+                    );
     }
 
 }
