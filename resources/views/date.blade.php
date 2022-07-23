@@ -7,7 +7,8 @@
         <div class="date">
             <button class="left"><</button>
             <div>{{$today->format('Y-m-d')}}</div>
-            <button class="right">></button>
+            <button a href="{{ route('attendance.date', ['id'=>'1']) }}" class="right">></button>
+            {{-- <button a href="{{ route('date.id') }}" class="right">></button> --}}
         </div>
 
         <table>

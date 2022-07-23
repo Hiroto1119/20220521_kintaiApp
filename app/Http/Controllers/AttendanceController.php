@@ -58,9 +58,12 @@ class AttendanceController extends Controller
         return back()->with('my_status', '退勤打刻が完了しました');
     }
 
+    // public function index(Request $request, $id)
     public function index()
     {
         $today = Carbon::today();
+        // $tomorrow = new Carbon('+1 day');
+        // dd($tomorrow);
         $attendancesToday = Attendance::where('date', $today)->paginate(5);
         // dd($attendancesToday);
         // attendancesの日付と今日の日付が一致した場合に、表示する。whereで絞り込む。

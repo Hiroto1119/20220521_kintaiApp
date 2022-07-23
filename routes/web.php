@@ -35,7 +35,9 @@ Route::middleware(['auth'])->group(function() {
 
     Route::post('/attendance/start', [AttendanceController::class, 'start'])->name('attendance.start');
     Route::post('/attendance/end', [AttendanceController::class, 'end'])->name('attendance.end');
+    // Route::get('/date/{id}', [AttendanceController::class, 'index'])->name('attendance.date');
     Route::get('/date', [AttendanceController::class, 'index'])->name('attendance.date');
+    // Route::get('/date', [AttendanceController::class, 'index'])->name('attendance.date');
 
     Route::post('/rest/start', [RestController::class, 'start'])->name('rest.start');
     Route::post('/rest/end', [RestController::class, 'end'])->name('rest.end');
