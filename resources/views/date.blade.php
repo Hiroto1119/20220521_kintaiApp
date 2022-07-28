@@ -5,9 +5,9 @@
 <div class="dateBackground">
     <div class="wrapper">
         <div class="date">
-            <button class="left"><</button>
-            <div>{{$today->format('Y-m-d')}}</div>
-            <button a href="{{ route('attendance.date', ['id'=>'1']) }}" class="right">></button>
+            <a href="{{ route('attendance.date', ['date'=>-1]) }}" class="left"><</a>
+            <div>{{$getDate->format('Y-m-d')}}</div>
+            <a href="{{ route('attendance.date', ['date'=>+1]) }}" class="right">></a>
             {{-- <button a href="{{ route('date.id') }}" class="right">></button> --}}
         </div>
 
@@ -27,8 +27,7 @@
                 <td>{{$attendance->start_time}}</td>
                 <td>{{$attendance->end_time}}</td>
                 <td>{{$attendance->sumRest()}}</td>
-                {{-- <td>{{$attendance->sumRest()}}</td> --}}
-                <td>勤務時間</td>
+                <td>{{$attendance->sumAttendance()}}</td>
             </tr>
 
             @endforeach

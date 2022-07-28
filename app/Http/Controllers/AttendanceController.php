@@ -58,13 +58,28 @@ class AttendanceController extends Controller
         return back()->with('my_status', '退勤打刻が完了しました');
     }
 
-    // public function index(Request $request, $id)
-    public function index()
+    public function index(Request $request)
+    // public function index()
     {
-        $today = Carbon::today();
-        // $tomorrow = new Carbon('+1 day');
+        // if ($request->date) {
+        //     dd($request->date);
+        // }
+        // $id = 1;
+        $getDate = Carbon::today();
+        // dd($getDate);
+
+        if ($request->date) {
+            $getDate = $getDate->addDay($request->date);
+        }
+
+        // これに+1する
+
+        // if文を使う
+
+        // $date = new Carbon('{$id} day');
+        // dd($id);
         // dd($tomorrow);
-        $attendancesToday = Attendance::where('date', $today)->paginate(5);
+        $attendances = Attendance::where('date', $getDate)->paginate(5);
         // dd($attendancesToday);
         // attendancesの日付と今日の日付が一致した場合に、表示する。whereで絞り込む。
         // $attendances = Attendance::simplePaginate(5);
@@ -73,12 +88,14 @@ class AttendanceController extends Controller
         $attendanceStarts = Attendance::all();
         $attendanceEnds = Attendance::all();
 
-        return view('date',
-                    ['attendances' => $attendancesToday],
-                    ['today' => $today],
-                    ['attendanceStarts' => $attendanceStarts],
-                    ['attendanceEnds' => $attendanceEnds],
-                    );
+        // return view('date',
+        //             ['attendances' => $attendancesToday],
+        //             ['today' => $day],
+        //             ['attendanceStarts' => $attendanceStarts],
+        //             ['attendanceEnds' => $attendanceEnds],
+        //             );
+
+        return view('date', ['attendances' => $attendances], ['getDate' => $getDate]);
     }
 
 }

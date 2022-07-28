@@ -65,7 +65,49 @@ class Attendance extends Model
 
     public function sumAttendance()
     {
-        return $this->hasMany(Rest::class);
+        $start_time = $this->start_time;
+        $end_time = $this->end_time;
+
+        $start_time_cal = strtotime($start_time);
+        $end_time_cal = strtotime($end_time);
+        // dd($start_time_cal);
+
+        if(!$end_time) {
+            return;
+        }
+
+        $sumAttendanceTime = ($end_time_cal - $start_time_cal);
+        // dd($sumAttendanceTime);
+        $sum = $sumAttendanceTime - $this->hour_to_sec($this->sumRest());
+        // dd($sum);
+        $hours = floor($sum / 3600);
+        $minutes = floor(($sum / 60) % 60);
+        $seconds = $sum % 60;
+        $hms = sprintf("%02d:%02d:%02d", $hours, $minutes, $seconds);
+
+        return $hms;
     }
+
+    function hour_to_sec($str)
+    {
+        $t = explode(":", $str); //配列（$t[0]（時）、$t[1]（分）、$t[2]（秒））にする
+        $h = (int)$t[0];
+        if (isset($t[1])) { //分の部分に値が入っているか確認
+            $m = (int)$t[1];
+        } else {
+            $m = 0;
+        }
+        if (isset($t[2])) { //秒の部分に値が入っているか確認
+            $s = (int)$t[2];
+        } else {
+            $s = 0;
+        }
+        return ($h * 60 * 60) + ($m * 60) + $s;
+    }
+
+    // public function sumAttendance()
+    // {
+    //     return $this->hasMany(Rest::class);
+    // }
 
 }
