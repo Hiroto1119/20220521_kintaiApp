@@ -59,43 +59,19 @@ class AttendanceController extends Controller
     }
 
     public function index(Request $request)
-    // public function index()
     {
-        // if ($request->date) {
-        //     dd($request->date);
-        // }
-        // $id = 1;
-        $getDate = Carbon::today();
-        // dd($getDate);
-
-        if ($request->date) {
-            $getDate = $getDate->addDay($request->date);
+        $num = $request->num;
+        if (!$num) {
+            $num = 0;
         }
 
-        // これに+1する
+        $getDate = Carbon::today();
 
-        // if文を使う
+        $getDate = $getDate->addDay($num);
 
-        // $date = new Carbon('{$id} day');
-        // dd($id);
-        // dd($tomorrow);
         $attendances = Attendance::where('date', $getDate)->paginate(5);
-        // dd($attendancesToday);
-        // attendancesの日付と今日の日付が一致した場合に、表示する。whereで絞り込む。
-        // $attendances = Attendance::simplePaginate(5);
-        // dd($attendances);
-        // $today = Carbon::today();
-        $attendanceStarts = Attendance::all();
-        $attendanceEnds = Attendance::all();
 
-        // return view('date',
-        //             ['attendances' => $attendancesToday],
-        //             ['today' => $day],
-        //             ['attendanceStarts' => $attendanceStarts],
-        //             ['attendanceEnds' => $attendanceEnds],
-        //             );
-
-        return view('date', ['attendances' => $attendances], ['getDate' => $getDate]);
+        return view('date', compact('num', 'getDate', 'attendances'));
     }
 
 }

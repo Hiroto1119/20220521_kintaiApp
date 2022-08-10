@@ -5,9 +5,10 @@
 <div class="dateBackground">
     <div class="wrapper">
         <div class="date">
-            <a href="{{ route('attendance.date', ['date'=>-1]) }}" class="left"><</a>
+            <a href="{{ route('attendance.date', ['num'=>-1 +$num]) }}" class="left"><</a>
             <div>{{$getDate->format('Y-m-d')}}</div>
-            <a href="{{ route('attendance.date', ['date'=>+1]) }}" class="right">></a>
+            {{-- <div>{{$getDate->format('Y-m-d')}}</div> --}}
+            <a href="{{ route('attendance.date', ['num'=>1 +$num]) }}" class="right">></a>
             {{-- <button a href="{{ route('date.id') }}" class="right">></button> --}}
         </div>
 
